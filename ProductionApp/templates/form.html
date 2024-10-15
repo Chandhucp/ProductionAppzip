@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Production Count Form</h1>
+
+    {% if success_message %}
+        <p class="success">{{ success_message }}</p>
+    {% endif %}
+
+    <form action="/" method="POST">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="APAC">APAC</option>
+            <option value="Out of network">Out of network</option>
+            <option value="In network">In network</option>
+            <option value="Contact details update">Contact details update</option>
+            <option value="General update">General update</option>
+            <option value="Envoy">Envoy</option>
+            <option value="Tariff update">Tariff update</option>
+            <option value="Price agreement update">Price agreement update</option>
+            <option value="DPA">DPA</option>
+        </select><br>
+
+        <label for="received_time_est">Received Time (EST):</label>
+        <input type="datetime-local" id="received_time_est" name="received_time_est" required><br>
+
+        <label for="pims_id">PIMS ID:</label>
+        <input type="number" id="pims_id" name="pims_id" required><br>
+
+        <label for="completed_time_est">Completed Time (EST):</label>
+        <input type="datetime-local" id="completed_time_est" name="completed_time_est" required><br>
+
+        <label for="completed_by">Completed By:</label>
+        <select id="completed_by" name="completed_by">
+            <option value="Ajay">Ajay</option>
+            <option value="Darshan">Darshan</option>
+            <option value="Rathan">Rathan</option>
+            <option value="Rukesh">Rukesh</option>
+            <option value="Sinchana">Sinchana</option>
+            <option value="Divya">Divya</option>
+        </select><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Download Report</h2>
+    <form action="/download_report" method="GET">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required><br>
+
+        <button type="submit">Download Report</button>
+    </form>
+
+    <h2>View Live Report</h2>
+    <a href="{{ url_for('live_report') }}"><button type="button">View Live Report</button></a>
+
+    <style>
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

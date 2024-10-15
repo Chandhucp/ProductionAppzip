@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9ecef; /* Light gray background */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px; /* Wider container */
+}
+
+h1 {
+    color: #4CAF50; /* Green color */
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: space-between; /* Space between items */
+}
+
+label {
+    flex: 1 1 100%; /* Full width for labels */
+    margin-top: 15px;
+}
+
+input[type="datetime-local"],
+input[type="number"],
+input[type="date"],
+select {
+    flex: 1 1 48%; /* Two fields side by side */
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 4px;
+}
+
+button {
+    padding: 12px 15px;
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1 1 100%; /* Full width for the button */
+    margin-top: 15px; /* Space above button */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.success {
+    color: #28a745; /* Success color */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #343a40; /* Darker color for headings */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dee2e6; /* Light border for table */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa; /* Light gray background for header */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra stripes for rows */
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

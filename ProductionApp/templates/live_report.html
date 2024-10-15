@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Today's Live Reports</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SL.NO</th>
+                <th>Category</th>
+                <th>Received Time (EST)</th>
+                <th>Received Time (IST)</th>
+                <th>PIMS ID</th>
+                <th>Completed Time (EST)</th>
+                <th>Completed Time (IST)</th>
+                <th>Completed By</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ row['category'] }}</td>
+                    <td>{{ row['received_time_est'].replace('T', ' ') }}</td>
+                    <td>{{ row['received_time_ist'].replace('T', ' ') }}</td>
+                    <td>{{ row['pims_id'] }}</td>
+                    <td>{{ row['completed_time_est'].replace('T', ' ') }}</td>
+                    <td>{{ row['completed_time_ist'].replace('T', ' ') }}</td>
+                    <td>{{ row['completed_by'] }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">No reports available for today.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="/">Back to Form</a>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</body>
+</html>
